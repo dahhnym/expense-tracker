@@ -1,0 +1,15 @@
+.expenses-filter {
+  display: flex;
+  justify-content: space-between;
+  label {
+    line-height: 2rem;
+  }
+}
+
+.expenses-filter__control {
+  width: 4.5rem;
+  height: 2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0 0.3rem;
+}
