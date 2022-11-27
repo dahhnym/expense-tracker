@@ -1,26 +1,28 @@
-import styles from "./NewExpense.module.scss";
+import "./NewExpense.scss";
 
 const NewExpense = () => {
   return (
-    <div className={styles["new-expense"]}>
+    <div className='new-expense'>
       <form action=''>
-        <div className={styles["new-expense__controls"]}>
-          <div className={styles["new-expense__control"]}>
+        <div className='new-expense__controls'>
+          <div className='new-expense__control'>
             <label htmlFor=''>항목</label>
             <input type='text' />
           </div>
-          <div>
+          <div className='new-expense__control'>
             <label htmlFor=''>금액</label>
             <input type='number' min='0' />
           </div>
-          <div>
-            <label htmlFor='' className={styles["new-expense__date"]}>
+          <div className='new-expense__control'>
+            <label htmlFor='' className='new-expense__date'>
               날짜
             </label>
             <input type='date' />
           </div>
-          <button type='submit'>추가하기</button>
         </div>
+        <button type='submit' className='new-expense__actions'>
+          추가하기
+        </button>
       </form>
     </div>
   );

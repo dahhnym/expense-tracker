@@ -1,0 +1,48 @@
+.new-expense {
+  background-color: #fff;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+  height: 250px;
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.new-expense__controls {
+  // border: solid 1px red;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.new-expense__control {
+  display: flex;
+  flex-direction: column;
+  label {
+    font-size: 0.9rem;
+    color: #a9abad;
+  }
+  input {
+    height: 2rem;
+    width: 20rem;
+    max-width: 100%;
+    border: none;
+    border-bottom: solid 1px #d5d7db;
+    font-size: 1rem;
+    outline: 0;
+  }
+  input:focus {
+    border-bottom: solid 1px #233044;
+    transition: all ease-in-out 0.2s;
+  }
+}
+
+.new-expense__actions {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  float: right;
+  background-color: #233044;
+  border-radius: 10px;
+  color: rgb(236, 234, 234);
+}
