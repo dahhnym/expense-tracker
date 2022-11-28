@@ -3,7 +3,7 @@ import { FunctionComponent } from "react";
 import ExpensesFilter from "./ExpensesFilter";
 import Chart from "./Chart/Chart";
 
-type ExpenseProps = {
+export type ExpenseProps = {
   id: string;
   title: string;
   amount: number;

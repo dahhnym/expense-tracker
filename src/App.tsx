@@ -1,6 +1,7 @@
 import "./reset.css";
-import Expenses from "./components/Expenses";
+import Expenses, { ExpenseProps } from "./components/Expenses";
 import NewExpense from "./components/NewExpense";
+import { useState } from "react";
 
 function App() {
   const DUMMY_EXPENSES = [
@@ -25,6 +26,14 @@ function App() {
     },
   ];
 
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
+  const addExpensesHandler = (expense: ExpenseProps) => {
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
+  };
+
   return (
     <div
       className='App'
@@ -32,9 +41,10 @@ function App() {
         minWidth: "40rem",
         maxWidth: "50rem",
         margin: "1rem auto 0",
-      }}>
-      <NewExpense />
-      <Expenses {...DUMMY_EXPENSES} />
+      }}
+    >
+      <NewExpense onAddExpenses={addExpensesHandler} />
+      <Expenses {...expenses} />
     </div>
   );
 }
