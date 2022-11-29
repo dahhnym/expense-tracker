@@ -1,35 +1,50 @@
 import "./Expenses.scss";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import ExpensesFilter from "./ExpensesFilter";
 import Chart from "./Chart/Chart";
 
-export type ExpenseProps = {
+export type ExpenseItemType = {
   id: string;
   title: string;
   amount: number;
   date: Date;
 };
 
-const Expenses: FunctionComponent<Array<ExpenseProps>> = (items) => {
+export type ExpenseProps = {
+  items: ExpenseItemType[];
+};
+
+const Expenses: FunctionComponent<ExpenseProps> = ({ items }) => {
+  const [filterYear, setFilteredYear] = useState("2022");
+
+  const filterChangeHandler = (selectedYear: string) => {
+    setFilteredYear(selectedYear);
+  };
+
+  const filteredExpenses = items.filter(
+    (item) => item.date.getFullYear() === Number(filterYear)
+  );
+
   return (
     <article className='expenses'>
       <section>
         <h2 className='a11y-hidden'>연도별 지출금액 비교</h2>
-        <ExpensesFilter />
+        <ExpensesFilter onFilterChange={filterChangeHandler} />
         <Chart selectedYear={"2021"} />
       </section>
       <section>
         <h2 className='a11y-hidden'>지출내역</h2>
         <ul>
-          {Object.values(items).map((item) => {
+          {filteredExpenses.map((expense) => {
+            const { id, date, title, amount } = expense;
             return (
-              <li key={item.id}>
+              <li key={id}>
                 <div className='expense-item'>
-                  <p>{`${item.date.toLocaleDateString()}`}</p>
+                  <p>{`${date.toLocaleDateString()}`}</p>
                   <div className='expense-item__description'>
-                    <p className='expense-item__title'>{item.title}</p>
+                    <p className='expense-item__title'>{title}</p>
                     <p className='expense-item__amount'>
-                      {item.amount.toLocaleString()} 원
+                      {amount.toLocaleString()} 원
                     </p>
                   </div>
                 </div>

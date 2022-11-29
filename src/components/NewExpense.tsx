@@ -1,15 +1,14 @@
-import React, {
-  ChangeEvent,
+import {
   ChangeEventHandler,
   FormEventHandler,
   FunctionComponent,
   useState,
 } from "react";
-import { ExpenseProps } from "./Expenses";
+import { ExpenseItemType } from "./Expenses";
 import "./NewExpense.scss";
 
 interface NewExpenseProps {
-  onAddExpenses: (props: ExpenseProps) => void;
+  onAddExpenses: (props: ExpenseItemType) => void;
 }
 
 const NewExpense: FunctionComponent<NewExpenseProps> = ({ onAddExpenses }) => {
@@ -36,7 +35,7 @@ const NewExpense: FunctionComponent<NewExpenseProps> = ({ onAddExpenses }) => {
   const submitHandler: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    const expenseData: ExpenseProps = {
+    const expenseData = {
       id: (Math.random() * 10000).toFixed(),
       title: titleInput,
       amount: amountInput,

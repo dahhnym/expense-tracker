@@ -1,5 +1,5 @@
 import "./reset.css";
-import Expenses, { ExpenseProps } from "./components/Expenses";
+import Expenses, { ExpenseItemType } from "./components/Expenses";
 import NewExpense from "./components/NewExpense";
 import { useState } from "react";
 
@@ -28,7 +28,7 @@ function App() {
 
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
-  const addExpensesHandler = (expense: ExpenseProps) => {
+  const addExpensesHandler = (expense: ExpenseItemType) => {
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
@@ -44,7 +44,7 @@ function App() {
       }}
     >
       <NewExpense onAddExpenses={addExpensesHandler} />
-      <Expenses {...expenses} />
+      <Expenses items={expenses} />
     </div>
   );
 }
