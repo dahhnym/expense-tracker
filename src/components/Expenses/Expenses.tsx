@@ -1,7 +1,7 @@
 import "./Expenses.scss";
 import { FunctionComponent, useState } from "react";
 import ExpensesFilter from "./ExpensesFilter";
-import Chart from "./Chart/Chart";
+import ExpenseChart from "./ExpenseChart";
 
 export type ExpenseItemType = {
   id: string;
@@ -30,7 +30,7 @@ const Expenses: FunctionComponent<ExpenseProps> = ({ items }) => {
       <section>
         <h2 className='a11y-hidden'>연도별 지출금액 비교</h2>
         <ExpensesFilter onFilterChange={filterChangeHandler} />
-        <Chart selectedYear={"2021"} />
+        <ExpenseChart expenses={filteredExpenses} />
       </section>
       <section>
         <h2 className='a11y-hidden'>지출내역</h2>

@@ -4,7 +4,7 @@ import {
   FunctionComponent,
   useState,
 } from "react";
-import { ExpenseItemType } from "./Expenses";
+import { ExpenseItemType } from "./Expenses/Expenses";
 import "./NewExpense.scss";
 
 interface NewExpenseProps {

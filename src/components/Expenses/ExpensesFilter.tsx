@@ -11,7 +11,6 @@ const ExpensesFilter: FunctionComponent<ExpensesFilterProp> = ({
   const dropDownChangeHandler: ChangeEventHandler<HTMLSelectElement> = (
     event
   ) => {
-    console.log("seleectedYear", event.target.value);
     onFilterChange(event.target.value);
   };
 

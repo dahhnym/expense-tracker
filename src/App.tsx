@@ -1,5 +1,5 @@
 import "./reset.css";
-import Expenses, { ExpenseItemType } from "./components/Expenses";
+import Expenses, { ExpenseItemType } from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense";
 import { useState } from "react";
 
