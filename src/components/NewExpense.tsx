@@ -23,15 +23,11 @@ const NewExpense: FunctionComponent<NewExpenseProps> = ({ onAddExpenses }) => {
     setTitleInput(e.target.value);
   };
 
-  const amountChangeHandler: ChangeEventHandler<HTMLInputElement> = (
-    e: ChangeEvent<HTMLInputElement>
-  ) => {
+  const amountChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
     setAmountInput(e.target.valueAsNumber);
   };
 
-  const dateChangeHandler: ChangeEventHandler<HTMLInputElement> = (
-    e: ChangeEvent<HTMLInputElement>
-  ) => {
+  const dateChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.valueAsDate !== null) {
       setDateInput(e.target.valueAsDate);
     }

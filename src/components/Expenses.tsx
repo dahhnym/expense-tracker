@@ -16,7 +16,7 @@ const Expenses: FunctionComponent<Array<ExpenseProps>> = (items) => {
       <section>
         <h2 className='a11y-hidden'>연도별 지출금액 비교</h2>
         <ExpensesFilter />
-        <Chart />
+        <Chart selectedYear={"2021"} />
       </section>
       <section>
         <h2 className='a11y-hidden'>지출내역</h2>
