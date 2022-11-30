@@ -10,11 +10,20 @@ interface Props {
 }
 
 const Chart: FunctionComponent<Props> = ({ dataPoints }) => {
-  // ChartBar에 넘겨줄 데이터 : key(월), maxValue, value, label(월)
-
+  const dataPointsValues = dataPoints.map((dataPoint) => dataPoint.value);
+  const totalMaximum = Math.max(...dataPointsValues);
   return (
     <div className='chart'>
-      <ChartBar />
+      {dataPoints.map((dataPoint) => {
+        return (
+          <ChartBar
+            key={dataPoint.label}
+            value={dataPoint.value}
+            maxValue={totalMaximum}
+            label={dataPoint.label}
+          />
+        );
+      })}
     </div>
   );
 };

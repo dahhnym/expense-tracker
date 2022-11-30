@@ -7,22 +7,22 @@ interface Props {
 }
 
 const ExpenseChart: FunctionComponent<Props> = ({ expenses }) => {
-  // 월별 지출 금액 구하기
   const chartDataPoints = [
-    { label: "1월", value: 0 },
-    { label: "2월", value: 0 },
-    { label: "3월", value: 0 },
-    { label: "4월", value: 0 },
-    { label: "5월", value: 0 },
-    { label: "6월", value: 0 },
-    { label: "7월", value: 0 },
-    { label: "8월", value: 0 },
-    { label: "9월", value: 0 },
+    { label: "01월", value: 0 },
+    { label: "02월", value: 0 },
+    { label: "03월", value: 0 },
+    { label: "04월", value: 0 },
+    { label: "05월", value: 0 },
+    { label: "06월", value: 0 },
+    { label: "07월", value: 0 },
+    { label: "08월", value: 0 },
+    { label: "09월", value: 0 },
     { label: "10월", value: 0 },
     { label: "11월", value: 0 },
     { label: "12월", value: 0 },
   ];
 
+  // 차트 표시 위해 월별 지출금액 value에 저장
   for (const expense of expenses) {
     const expenseMonth = expense.date.getMonth();
     chartDataPoints[expenseMonth].value += expense.amount;
