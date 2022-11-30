@@ -1,6 +1,6 @@
 import "./reset.css";
 import Expenses, { ExpenseItemType } from "./components/Expenses/Expenses";
-import NewExpense from "./components/NewExpense";
+import NewExpense from "./components/NewExpense/NewExpense";
 import { useState } from "react";
 
 function App() {
@@ -11,7 +11,12 @@ function App() {
       amount: 90000,
       date: new Date(2020, 7, 14),
     },
-    { id: "e2", title: "화장지", amount: 15000, date: new Date(2021, 2, 12) },
+    {
+      id: "e2",
+      title: "화장지",
+      amount: 15000,
+      date: new Date(2021, 2, 12),
+    },
     {
       id: "e3",
       title: "자동차 보험",

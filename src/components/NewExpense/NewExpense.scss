@@ -1,0 +1,24 @@
+.new-expense {
+  background-color: #fff;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.new-expense__actions {
+  float: right;
+}
+
+.new-expense button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #233044;
+  border-radius: 10px;
+  color: rgb(236, 234, 234);
+  &:last-child {
+    margin-left: 0.5rem;
+  }
+}
