@@ -4,9 +4,10 @@ import {
   useState,
   FormEventHandler,
   FunctionComponent,
+  useRef,
 } from "react";
 import { ExpenseItemType } from "../Expenses/Expenses";
-import Input from "../UI/Input/Input";
+import Input, { InputRefHandle } from "../UI/Input/Input";
 
 interface Props {
   onCancel: () => void;
@@ -26,7 +27,7 @@ const ExpenseForm: FunctionComponent<Props> = ({
   const defaultInput = {
     title: "",
     amount: 0,
-    date: new Date(Date.now()),
+    date: new Date(1900, 1, 1),
   };
 
   const [userInput, setUserInput] = useState<UserInput>(defaultInput);
@@ -53,25 +54,56 @@ const ExpenseForm: FunctionComponent<Props> = ({
     });
   };
 
+  const titleInputRef = useRef<InputRefHandle>(null);
+  const amountInputRef = useRef<InputRefHandle>(null);
+  const dateInputRef = useRef<InputRefHandle>(null);
+
+  const checkValidation = () => {
+    if (userInput.title.trim().length === 0) {
+      titleInputRef.current?.activate();
+      alert("지출항목을 입력하세요");
+      return false;
+    }
+    if (userInput.amount === 0 || isNaN(userInput.amount)) {
+      amountInputRef.current?.activate();
+      alert("지출금액을 입력하세요");
+      return false;
+    }
+    if (userInput.date.getFullYear() === 1900) {
+      dateInputRef.current?.activate();
+      alert("지출날짜를 입력하세요");
+      return false;
+    }
+    return true;
+  };
+
   const submitHandler: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-
-    const expenseData = {
-      ...userInput,
-      id: (Math.random() * 10000).toFixed(),
-    };
-    onSaveExpenseData(expenseData);
+    const isValid = checkValidation();
+    if (isValid) {
+      const expenseData = {
+        ...userInput,
+        id: (Math.random() * 10000).toFixed(),
+      };
+      onSaveExpenseData(expenseData);
+    } else return;
   };
 
   return (
     <form onSubmit={submitHandler}>
       <div className='new-expense__controls'>
-        <Input type='text' onChange={titleChangeHandler} label='항목' />
+        <Input
+          type='text'
+          onChange={titleChangeHandler}
+          label='항목'
+          ref={titleInputRef}
+        />
         <Input
           type='number'
           min='0'
           onChange={amountChangeHandler}
           label='금액'
+          ref={amountInputRef}
         />
         <Input
           type='date'
@@ -80,6 +112,7 @@ const ExpenseForm: FunctionComponent<Props> = ({
           label='날짜'
           onKeydown={(e) => e.preventDefault()}
           onChange={dateChangeHandler}
+          ref={dateInputRef}
         />
       </div>
       <div className='new-expense__actions'>
