@@ -6,6 +6,7 @@ import {
   FunctionComponent,
 } from "react";
 import { ExpenseItemType } from "../Expenses/Expenses";
+import Input from "../UI/Input/Input";
 
 interface Props {
   onCancel: () => void;
@@ -65,30 +66,21 @@ const ExpenseForm: FunctionComponent<Props> = ({
   return (
     <form onSubmit={submitHandler}>
       <div className='new-expense__controls'>
-        <div className='new-expense__control'>
-          <label htmlFor=''>항목</label>
-          <input
-            type='text'
-            value={userInput.title}
-            onChange={titleChangeHandler}
-          />
-        </div>
-        <div className='new-expense__control'>
-          <label htmlFor=''>금액</label>
-          <input type='number' min='0' onChange={amountChangeHandler} />
-        </div>
-        <div className='new-expense__control'>
-          <label htmlFor='' className='new-expense__date'>
-            날짜
-          </label>
-          <input
-            type='date'
-            min='2019-01-01'
-            max='2022-12-31'
-            onKeyDown={(e) => e.preventDefault()}
-            onChange={dateChangeHandler}
-          />
-        </div>
+        <Input type='text' onChange={titleChangeHandler} label='항목' />
+        <Input
+          type='number'
+          min='0'
+          onChange={amountChangeHandler}
+          label='금액'
+        />
+        <Input
+          type='date'
+          min='2019-01-01'
+          max='2022-12-31'
+          label='날짜'
+          onKeydown={(e) => e.preventDefault()}
+          onChange={dateChangeHandler}
+        />
       </div>
       <div className='new-expense__actions'>
         <button type='submit'>추가</button>

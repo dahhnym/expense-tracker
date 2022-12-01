@@ -4,25 +4,3 @@
   gap: 1rem;
   margin-bottom: 1rem;
 }
-
-.new-expense__control {
-  display: flex;
-  flex-direction: column;
-  label {
-    font-size: 0.9rem;
-    color: #a9abad;
-  }
-  input {
-    height: 2rem;
-    width: 20rem;
-    max-width: 100%;
-    border: none;
-    border-bottom: solid 1px #d5d7db;
-    font-size: 1rem;
-    outline: 0;
-  }
-  input:focus {
-    border-bottom: solid 1px #233044;
-    transition: all ease-in-out 0.2s;
-  }
-}
