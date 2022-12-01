@@ -1,0 +1,17 @@
+.expense-item {
+  display: flex;
+  flex-direction: column;
+  height: 4rem;
+}
+
+.expense-item__description {
+  // border: solid 1px blue;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expense-item__amount {
+  font-size: 1rem;
+}

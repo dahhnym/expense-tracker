@@ -1,4 +1,5 @@
 import { FunctionComponent, useState } from "react";
+import Card from "../UI/Card/Card";
 import { ExpenseItemType } from "./../Expenses/Expenses";
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.scss";
@@ -19,7 +20,7 @@ const NewExpense: FunctionComponent<NewExpenseProps> = ({ onAddExpenses }) => {
   };
 
   return (
-    <div className='new-expense'>
+    <Card className='new-expense'>
       {!isEditing && (
         <button type='button' onClick={startEditingHandler}>
           새 항목 추가하기
@@ -31,7 +32,7 @@ const NewExpense: FunctionComponent<NewExpenseProps> = ({ onAddExpenses }) => {
           onSaveExpenseData={onAddExpenses}
         />
       )}
-    </div>
+    </Card>
   );
 };
 

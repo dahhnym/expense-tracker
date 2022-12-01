@@ -9,33 +9,11 @@
 }
 
 .expenses {
-  // Card style
-  background-color: #fff;
-  border-radius: 1rem;
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
   margin-top: 1.5rem;
   padding: 1.5rem;
-}
-
-.expense-item {
-  display: flex;
-  flex-direction: column;
-  height: 4rem;
 }
 
 li + li {
   border-top: solid 1px #d5d7db;
   padding-top: 0.5rem;
-}
-
-.expense-item__description {
-  // border: solid 1px blue;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.expense-item__amount {
-  font-size: 1rem;
 }
