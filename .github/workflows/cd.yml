@@ -12,5 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: deploy to gh pages
-      - uses: JamesIves/github-pages-deploy-action@v4.4.1
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
