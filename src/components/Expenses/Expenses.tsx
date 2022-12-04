@@ -29,10 +29,8 @@ const Expenses: FunctionComponent<ExpenseProps> = ({ items }) => {
 
   return (
     <Card className='expenses'>
-      <h2 className='a11y-hidden'>연도별 지출금액 비교</h2>
       <ExpensesFilter onFilterChange={filterChangeHandler} />
       <ExpenseChart expenses={filteredExpenses} />
-      <h2 className='a11y-hidden'>지출내역</h2>
       <ExpenseList filteredExpenses={filteredExpenses} />
     </Card>
   );
