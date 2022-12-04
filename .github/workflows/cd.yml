@@ -1,0 +1,16 @@
+name: Deployment
+
+concurrency: production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: deploy to gh pages
+      - uses: JamesIves/github-pages-deploy-action@v4.4.1
